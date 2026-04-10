@@ -3,6 +3,16 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
+function WaveDown({ from, to }: { from: string; to: string }) {
+  return (
+    <div className={`${from} -mb-1`}>
+      <svg viewBox="0 0 1440 60" className="w-full block" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,0 C360,60 1080,60 1440,0 L1440,60 L0,60 Z" fill={to} />
+      </svg>
+    </div>
+  );
+}
+
 export default function HomePage() {
   const [formData, setFormData] = useState({ name: "", email: "" });
   const [submitted, setSubmitted] = useState(false);
@@ -12,11 +22,17 @@ export default function HomePage() {
     if (formData.name && formData.email) setSubmitted(true);
   }
 
+  const features = [
+    { icon: "📄", title: "Upload Your Documents", desc: "Simply upload your grant proposal and the grant requirements in PDF or Word format." },
+    { icon: "🤖", title: "AI Analysis", desc: "Our AI compares your proposal against the requirements, identifying gaps, strengths, and weaknesses." },
+    { icon: "🌱", title: "Actionable Insights", desc: "Receive a clear, prioritized report of exactly what to improve to maximize your funding chances." },
+  ];
+
   return (
     <>
       {/* Hero */}
-      <section className="bg-gradient-to-br from-sage-50 via-sage-100 to-sage-200 py-20 md:py-28">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="bg-gradient-to-br from-sage-50 via-sage-100 to-sage-200 pt-20 md:pt-28 pb-0">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div>
               <span className="inline-block bg-sage-200 text-sage-700 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider mb-4">
@@ -31,23 +47,13 @@ export default function HomePage() {
                 to secure funding.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Link href="/how-it-works" className="btn-primary text-center">
-                  See How It Works
-                </Link>
-                <Link href="/contact" className="btn-outline text-center">
-                  Get in Touch
-                </Link>
+                <Link href="/how-it-works" className="btn-primary text-center">See How It Works</Link>
+                <Link href="/contact" className="btn-outline text-center">Get in Touch</Link>
               </div>
             </div>
             <div className="relative hidden md:block">
               <div className="relative h-96 rounded-2xl overflow-hidden shadow-2xl">
-                <Image
-                  src="/images/headshot.jpg"
-                  alt="Hannah Burke — Community Needs Navigator"
-                  fill
-                  className="object-cover object-top"
-                  priority
-                />
+                <Image src="/images/headshot.jpg" alt="Hannah Burke" fill className="object-cover object-top" priority />
               </div>
               <div className="absolute -bottom-4 -left-4 bg-white rounded-xl shadow-lg p-4 max-w-xs">
                 <div className="flex items-center gap-3">
@@ -61,48 +67,52 @@ export default function HomePage() {
             </div>
           </div>
         </div>
+        <WaveDown from="bg-transparent" to="white" />
       </section>
 
       {/* Features */}
-      <section className="py-20 bg-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="pt-16 pb-0 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
           <div className="text-center mb-14">
             <h2 className="section-heading">Why Community Needs Navigator?</h2>
             <p className="text-gray-500 max-w-xl mx-auto">
               Grant writing is hard. We make it easier by giving you expert-level feedback in seconds.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                icon: "📄",
-                title: "Upload Your Documents",
-                desc: "Simply upload your grant proposal and the grant requirements in PDF or Word format.",
-              },
-              {
-                icon: "🤖",
-                title: "AI Analysis",
-                desc: "Our AI compares your proposal against the requirements, identifying gaps, strengths, and weaknesses.",
-              },
-              {
-                icon: "🌱",
-                title: "Actionable Insights",
-                desc: "Receive a clear, prioritized report of exactly what to improve to maximize your funding chances.",
-              },
-            ].map((f) => (
-              <div key={f.title} className="card text-center">
-                <div className="text-4xl mb-4">{f.icon}</div>
-                <h3 className="text-lg font-bold text-sage-800 mb-2">{f.title}</h3>
-                <p className="text-gray-500 text-sm leading-relaxed">{f.desc}</p>
-              </div>
+
+          {/* Cards with arrows */}
+          <div className="flex flex-col md:flex-row items-center gap-4">
+            {features.map((f, i) => (
+              <>
+                <div key={f.title} className="card text-center flex-1 w-full">
+                  <div className="text-4xl mb-4">{f.icon}</div>
+                  <h3 className="text-lg font-bold text-sage-800 mb-2">{f.title}</h3>
+                  <p className="text-gray-500 text-sm leading-relaxed">{f.desc}</p>
+                </div>
+                {i < features.length - 1 && (
+                  <div key={`arrow-${i}`} className="flex-shrink-0 flex items-center justify-center">
+                    {/* Desktop arrow */}
+                    <svg className="hidden md:block w-10 h-10 text-sage-400" fill="none" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M8 20 H30" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"/>
+                      <path d="M22 12 L32 20 L22 28" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+                    </svg>
+                    {/* Mobile arrow */}
+                    <svg className="md:hidden w-8 h-8 text-sage-400" fill="none" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M20 8 V30" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"/>
+                      <path d="M12 22 L20 32 L28 22" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+                    </svg>
+                  </div>
+                )}
+              </>
             ))}
           </div>
         </div>
+        <WaveDown from="bg-white" to="#F3F7F0" />
       </section>
 
       {/* Photo strip */}
-      <section className="py-14 bg-sage-50">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="pt-16 pb-0" style={{ backgroundColor: "#F3F7F0" }}>
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             <div>
               <h2 className="section-heading">Rooted in Community</h2>
@@ -114,9 +124,7 @@ export default function HomePage() {
               <p className="text-gray-600 leading-relaxed">
                 This platform bridges the gap between powerful ideas and the funding they deserve.
               </p>
-              <Link href="/about" className="btn-primary mt-6 inline-block">
-                Learn More About Me
-              </Link>
+              <Link href="/about" className="btn-primary mt-6 inline-block">Learn More About Me</Link>
             </div>
             <div className="grid grid-cols-2 gap-4">
               <div className="relative h-56 rounded-xl overflow-hidden shadow-md">
@@ -128,10 +136,11 @@ export default function HomePage() {
             </div>
           </div>
         </div>
+        <WaveDown from="transparent" to="#3D5535" />
       </section>
 
       {/* Email Capture */}
-      <section className="py-20 bg-sage-700">
+      <section className="pt-16 pb-20 bg-sage-700" style={{ backgroundColor: "#3D5535" }}>
         <div className="max-w-2xl mx-auto px-4 sm:px-6 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">Stay in the Loop</h2>
           <p className="text-sage-200 mb-8">
@@ -144,8 +153,7 @@ export default function HomePage() {
               <div className="text-4xl mb-3">🎉</div>
               <h3 className="text-xl font-bold text-white mb-2">You&apos;re on the list!</h3>
               <p className="text-sage-200">
-                Thanks, {formData.name}! We&apos;ll reach out to <strong>{formData.email}</strong> with
-                updates and early access.
+                Thanks, {formData.name}! We&apos;ll reach out to <strong>{formData.email}</strong> with updates and early access.
               </p>
             </div>
           ) : (
@@ -154,9 +162,7 @@ export default function HomePage() {
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
                   <input
-                    type="text"
-                    required
-                    placeholder="Jane Smith"
+                    type="text" required placeholder="Jane Smith"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     className="w-full border border-gray-200 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-sage-400"
@@ -165,9 +171,7 @@ export default function HomePage() {
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
                   <input
-                    type="email"
-                    required
-                    placeholder="jane@example.com"
+                    type="email" required placeholder="jane@example.com"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     className="w-full border border-gray-200 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-sage-400"

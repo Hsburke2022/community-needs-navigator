@@ -54,32 +54,53 @@ export default function HowItWorksPage() {
   return (
     <>
       {/* Header */}
-      <section className="bg-gradient-to-br from-sage-50 to-sage-100 py-16">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="bg-gradient-to-br from-sage-50 to-sage-100 pt-16 pb-0">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center pb-12">
           <h1 className="text-4xl md:text-5xl font-bold text-sage-900 mb-4">How It Works</h1>
           <p className="text-sage-600 text-lg max-w-2xl mx-auto">
             Three simple steps to stronger grant proposals — powered by AI.
           </p>
         </div>
+        <svg viewBox="0 0 1440 60" className="w-full block -mb-1" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0,0 C360,60 1080,60 1440,0 L1440,60 L0,60 Z" fill="white" />
+        </svg>
       </section>
 
       {/* Steps */}
       <section className="py-20 bg-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+          <div className="flex flex-col md:flex-row items-center gap-4">
             {[
               { step: "1", icon: "📤", title: "Upload Your Documents", desc: "Upload your grant proposal and the grant requirements document — PDF or Word." },
               { step: "2", icon: "🤖", title: "AI Reviews Everything", desc: "Our AI reads both documents and compares your proposal against every requirement." },
               { step: "3", icon: "📊", title: "Get Your Report", desc: "Receive a detailed breakdown: what's missing, what's strong, what's weak, and how to improve." },
-            ].map((s) => (
-              <div key={s.step} className="text-center">
-                <div className="w-16 h-16 rounded-full bg-sage-100 text-sage-700 font-bold text-2xl flex items-center justify-center mx-auto mb-4">
-                  {s.step}
+            ].map((s, i) => (
+              <>
+                <div key={s.step} className="text-center flex-1 bg-sage-50 rounded-2xl p-8 border border-sage-100 shadow-sm w-full">
+                  <div className="w-16 h-16 rounded-full bg-sage-600 text-white font-bold text-2xl flex items-center justify-center mx-auto mb-4 shadow-md">
+                    {s.step}
+                  </div>
+                  <div className="text-3xl mb-3">{s.icon}</div>
+                  <h3 className="text-lg font-bold text-sage-800 mb-2">{s.title}</h3>
+                  <p className="text-gray-500 text-sm leading-relaxed">{s.desc}</p>
                 </div>
-                <div className="text-3xl mb-3">{s.icon}</div>
-                <h3 className="text-lg font-bold text-sage-800 mb-2">{s.title}</h3>
-                <p className="text-gray-500 text-sm leading-relaxed">{s.desc}</p>
-              </div>
+                {i < 2 && (
+                  <div key={`arrow-${i}`} className="flex-shrink-0 flex items-center justify-center">
+                    {/* Desktop arrow */}
+                    <div className="hidden md:flex flex-col items-center gap-1">
+                      <svg className="w-12 h-12 text-sage-400" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8 24 H36" stroke="currentColor" strokeWidth="3" strokeLinecap="round"/>
+                        <path d="M28 14 L40 24 L28 34" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+                      </svg>
+                    </div>
+                    {/* Mobile arrow */}
+                    <svg className="md:hidden w-8 h-10 text-sage-400" fill="none" viewBox="0 0 32 48" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M16 4 V36" stroke="currentColor" strokeWidth="3" strokeLinecap="round"/>
+                      <path d="M6 28 L16 40 L26 28" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+                    </svg>
+                  </div>
+                )}
+              </>
             ))}
           </div>
         </div>
