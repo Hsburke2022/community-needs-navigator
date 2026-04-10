@@ -108,7 +108,7 @@ export default function HomePage() {
               <h2 className="section-heading">Rooted in Community</h2>
               <p className="text-gray-600 leading-relaxed mb-4">
                 Community Needs Navigator was born from a genuine passion for strengthening nonprofits and
-                community organizations. I&apos;ve seen firsthand how transformative the right funding can be —
+                community organizations. I&apos;ve seen firsthand how transformative the right funding can be,
                 and how much potential goes unrealized because of imperfect grant writing.
               </p>
               <p className="text-gray-600 leading-relaxed">
