@@ -43,7 +43,7 @@ export default function AboutPage() {
                 When I was just 15 years old, I started the{" "}
                 <strong className="text-sage-700">Schuylkill Haven Community Garden</strong> with nothing
                 more than an idea and a shovel. Since then, I&apos;ve been on a mission to better my community
-                through various projects and organizations — and I discovered early on that great ideas often
+                through various projects and organizations, and I discovered early on that great ideas often
                 go unfunded simply because of imperfect grant writing.
               </p>
 
@@ -56,7 +56,7 @@ export default function AboutPage() {
                 {[
                   { icon: "🎓", text: "A capstone grant for creating a CED alumni network at Penn State." },
                   { icon: "🌍", text: "A grant for the CYEC (Children and Youth Empowerment Centre) in Nyeri, Kenya." },
-                  { icon: "🌱", text: "A $1,000 grant successfully secured from the Whole Kids Foundation — at just 16 years old." },
+                  { icon: "🌱", text: "A $1,000 grant successfully secured from the Whole Kids Foundation at just 16 years old." },
                 ].map((item) => (
                   <li key={item.text} className="flex gap-3 bg-sage-50 rounded-xl p-3 border border-sage-100">
                     <span className="text-lg shrink-0">{item.icon}</span>
@@ -68,12 +68,12 @@ export default function AboutPage() {
               <p className="text-gray-600 leading-relaxed mb-6">
                 I&apos;ve worked one-on-one with community members and organizations to identify their critical
                 need areas and develop successful, sustainable projects. Community Needs Navigator is the
-                direct result of that experience — combining my academic expertise with AI to make expert
+                direct result of that experience, combining my academic expertise with AI to make expert
                 grant feedback accessible to every organization that needs it.
               </p>
 
               <div className="flex flex-wrap gap-2 mb-6">
-                {["CED — Penn State", "Corporate Social Responsibility", "International Agriculture", "Entrepreneurship & Innovation", "Grant Writing", "Community Development"].map((tag) => (
+                {["CED at Penn State", "Corporate Social Responsibility", "International Agriculture", "Entrepreneurship & Innovation", "Grant Writing", "Community Development"].map((tag) => (
                   <span key={tag} className="bg-sage-100 text-sage-700 text-xs font-medium px-3 py-1 rounded-full">
                     {tag}
                   </span>
@@ -100,7 +100,7 @@ export default function AboutPage() {
                 showing up, getting your hands dirty, and building alongside the people you serve.
               </p>
               <p className="text-gray-600 leading-relaxed">
-                That same ethos drives Community Needs Navigator — it&apos;s not just a tool, it&apos;s a
+                That same ethos drives Community Needs Navigator. It&apos;s not just a tool, it&apos;s a
                 partner in your mission to create lasting positive change.
               </p>
             </div>
