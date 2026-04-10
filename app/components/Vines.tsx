@@ -2,14 +2,14 @@
 import { useEffect, useState } from "react";
 
 export default function Vines() {
-  const [progress, setProgress] = useState(0.25);
+  const [progress, setProgress] = useState(0.35);
 
   useEffect(() => {
     function onScroll() {
       const scrollTop = window.scrollY;
       const docHeight = document.documentElement.scrollHeight - window.innerHeight;
       const raw = docHeight > 0 ? Math.min(scrollTop / docHeight, 1) : 0;
-      setProgress(Math.max(raw, 0.25));
+      setProgress(Math.max(raw, 0.35));
     }
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
