@@ -1,22 +1,33 @@
 import Image from "next/image";
 import Link from "next/link";
 
+function WaveDown({ from, to }: { from: string; to: string }) {
+  return (
+    <div className={`${from} -mb-1`}>
+      <svg viewBox="0 0 1440 60" className="w-full block" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,0 C360,60 1080,60 1440,0 L1440,60 L0,60 Z" fill={to} />
+      </svg>
+    </div>
+  );
+}
+
 export default function AboutPage() {
   return (
     <>
       {/* Header */}
-      <section className="bg-gradient-to-br from-sage-50 to-sage-100 py-16">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="bg-gradient-to-br from-sage-50 to-sage-100 pt-16 pb-0">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center pb-12">
           <h1 className="text-4xl md:text-5xl font-bold text-sage-900 mb-4">About Me</h1>
           <p className="text-sage-600 text-lg max-w-2xl mx-auto">
             Passionate about community impact and empowering organizations to secure the funding they deserve.
           </p>
         </div>
+        <WaveDown from="bg-transparent" to="white" />
       </section>
 
       {/* Bio Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="pt-16 pb-0 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-14 items-start">
             <div className="relative h-[520px] rounded-2xl overflow-hidden shadow-xl sticky top-24">
               <Image
@@ -86,11 +97,12 @@ export default function AboutPage() {
             </div>
           </div>
         </div>
+        <WaveDown from="bg-white" to="#F3F7F0" />
       </section>
 
       {/* Community Photos */}
-      <section className="py-16 bg-sage-50">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="pt-16 pb-0" style={{ backgroundColor: "#F3F7F0" }}>
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-14 items-center">
             <div>
               <h2 className="section-heading">Rooted in Community</h2>
@@ -114,10 +126,11 @@ export default function AboutPage() {
             </div>
           </div>
         </div>
+        <WaveDown from="bg-transparent" to="white" />
       </section>
 
       {/* Pitch Video */}
-      <section className="py-20 bg-white">
+      <section className="pt-16 pb-20 bg-white">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="section-heading">Hear From Me Directly</h2>
           <p className="text-gray-500 mb-8">
