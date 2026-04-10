@@ -2,14 +2,14 @@
 import { useEffect, useState } from "react";
 
 export default function Vines() {
-  const [progress, setProgress] = useState(0.2);
+  const [progress, setProgress] = useState(0.45);
 
   useEffect(() => {
     function onScroll() {
       const scrollTop = window.scrollY;
       const docHeight = document.documentElement.scrollHeight - window.innerHeight;
       const raw = docHeight > 0 ? Math.min(scrollTop / docHeight, 1) : 0;
-      setProgress(Math.max(raw, 0.2));
+      setProgress(Math.max(raw, 0.45));
     }
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
@@ -147,14 +147,14 @@ export default function Vines() {
 
   return (
     <>
-      <div className="fixed left-0 top-0 h-full w-36 pointer-events-none z-10 overflow-hidden hidden xl:block">
+      <div className="fixed left-0 top-0 h-full w-36 pointer-events-none z-10 overflow-hidden hidden lg:block">
         <VineSVG
           stem="M50 0 C44 70 62 120 46 190 C32 255 60 310 48 390 C36 460 64 510 46 590 C30 660 58 710 48 790 C36 850 54 880 50 900"
           leaves={leftLeaves}
           tendrils={leftTendrils}
         />
       </div>
-      <div className="fixed right-0 top-0 h-full w-36 pointer-events-none z-10 overflow-hidden hidden xl:block">
+      <div className="fixed right-0 top-0 h-full w-36 pointer-events-none z-10 overflow-hidden hidden lg:block">
         <VineSVG
           stem="M50 0 C56 70 38 120 54 190 C68 255 40 310 52 390 C64 460 36 510 54 590 C70 660 42 710 52 790 C64 850 46 880 50 900"
           leaves={rightLeaves}
