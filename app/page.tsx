@@ -136,28 +136,28 @@ export default function HomePage() {
             </div>
           </div>
         </div>
-        <WaveDown from="transparent" to="#3D5535" />
+        <WaveDown from="transparent" to="white" />
       </section>
 
       {/* Email Capture */}
-      <section className="pt-16 pb-20 bg-sage-700" style={{ backgroundColor: "#3D5535" }}>
+      <section className="pt-16 pb-20 bg-white">
         <div className="max-w-2xl mx-auto px-4 sm:px-6 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">Stay in the Loop</h2>
-          <p className="text-sage-200 mb-8">
+          <h2 className="text-3xl md:text-4xl font-bold text-sage-800 mb-3">Stay in the Loop</h2>
+          <p className="text-gray-500 mb-8">
             Be the first to know when the full AI grant review tool launches. Enter your name and email
             below for early access and updates.
           </p>
 
           {submitted ? (
-            <div className="bg-sage-600 border border-sage-400 rounded-2xl p-8">
+            <div className="bg-sage-50 border border-sage-200 rounded-2xl p-8">
               <div className="text-4xl mb-3">🎉</div>
-              <h3 className="text-xl font-bold text-white mb-2">You&apos;re on the list!</h3>
-              <p className="text-sage-200">
+              <h3 className="text-xl font-bold text-sage-800 mb-2">You&apos;re on the list!</h3>
+              <p className="text-gray-500">
                 Thanks, {formData.name}! We&apos;ll reach out to <strong>{formData.email}</strong> with updates and early access.
               </p>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="bg-white rounded-2xl p-8 shadow-xl text-left">
+            <form onSubmit={handleSubmit} className="bg-sage-50 border border-sage-100 rounded-2xl p-8 shadow-sm text-left">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
@@ -165,7 +165,7 @@ export default function HomePage() {
                     type="text" required placeholder="Jane Smith"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full border border-gray-200 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-sage-400"
+                    className="w-full border border-gray-200 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-sage-400 bg-white"
                   />
                 </div>
                 <div>
@@ -174,7 +174,7 @@ export default function HomePage() {
                     type="email" required placeholder="jane@example.com"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full border border-gray-200 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-sage-400"
+                    className="w-full border border-gray-200 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-sage-400 bg-white"
                   />
                 </div>
               </div>
