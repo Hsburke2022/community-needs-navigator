@@ -49,7 +49,7 @@ export default function AboutPage() {
 
               <p className="text-gray-600 leading-relaxed mb-4">
                 Through my coursework, I&apos;ve written a community profile, a critical needs assessment,
-                and three grants — each building real-world expertise:
+                and three grants, each building real-world expertise:
               </p>
 
               <ul className="space-y-3 mb-5">
